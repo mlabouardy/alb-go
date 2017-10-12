@@ -5,7 +5,7 @@ provider "aws" {
 resource "aws_instance" "movies-instance" {
   ami = "${lookup(var.amis, var.region)}"
   instance_type = "${var.instance_type}"
-  keyname = "${var.keyname}"
+  key_name = "${var.keyname}"
   security_groups =  ["${aws_security_group.default.name}"]
 
   tags {
@@ -22,12 +22,14 @@ resource "aws_instance" "movies-instance" {
       private_key = "${file("${var.private_key}")}"
     }
   }
+
+  user_data = "${file("setup.sh")}"
 }
 
 resource "aws_instance" "books-instance" {
   ami = "${lookup(var.amis, var.region)}"
   instance_type = "${var.instance_type}"
-  keyname = "${var.keyname}"
+  key_name = "${var.keyname}"
   security_groups =  ["${aws_security_group.default.name}"]
 
   tags {

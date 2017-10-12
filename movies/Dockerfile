@@ -7,6 +7,6 @@ COPY . $DIR
 
 WORKDIR $DIR
 
-EXPOSE 3000
+EXPOSE 5000
 
 CMD go run app.go

@@ -4,10 +4,9 @@ variable "private_key" {}
 
 variable "amis" {
   type = "map"
-  descritpion = "List of AMIs per region"
   default = {
-    "us-east-1" : "ami-8c1be5f6"
-    "eu-west-2" : "ami-1a7f6d7e"
+    "us-east-1" = "ami-8c1be5f6"
+    "eu-west-2" = "ami-1a7f6d7e"
   }
 }
 

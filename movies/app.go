@@ -27,7 +27,7 @@ func MoviesEndpoint(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/health", HealthCheckEndpoint)
 	http.HandleFunc("/movies", MoviesEndpoint)
-	if err := http.ListenAndServe(":3000", nil); err != nil {
+	if err := http.ListenAndServe(":5000", nil); err != nil {
 		log.Fatal(err)
 	}
 }
