@@ -6,7 +6,7 @@ resource "aws_instance" "movies-instance" {
   ami = "${lookup(var.amis, var.region)}"
   instance_type = "${var.instance_type}"
   key_name = "${var.keyname}"
-  security_groups =  ["${aws_security_group.default.name}"]
+  security_groups =  ["${aws_security_group.api_sg.name}"]
 
   tags {
     Name = "movies-instance"
@@ -30,7 +30,7 @@ resource "aws_instance" "books-instance" {
   ami = "${lookup(var.amis, var.region)}"
   instance_type = "${var.instance_type}"
   key_name = "${var.keyname}"
-  security_groups =  ["${aws_security_group.default.name}"]
+  security_groups =  ["${aws_security_group.api_sg.name}"]
 
   tags {
     Name = "books-instance"

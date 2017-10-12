@@ -1,4 +1,4 @@
-resource "aws_security_group" "default" {
+resource "aws_security_group" "api_sg" {
   name = "api-sg"
   description = "Allow port 5000"
 
@@ -25,5 +25,21 @@ resource "aws_security_group" "default" {
 
   tags {
     Name = "APIs Security Group"
+  }
+}
+
+resource "aws_security_group" "alb_sg" {
+  name = "alb-sg"
+  description = "Allow port 5000"
+
+  ingress {
+    from_port = 80
+    to_port = 80
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags {
+    Name = "ALB Security Group"
   }
 }
