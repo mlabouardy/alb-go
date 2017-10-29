@@ -30,7 +30,7 @@ resource "aws_security_group" "api_sg" {
 
 resource "aws_security_group" "alb_sg" {
   name = "alb-sg"
-  description = "Allow port 5000"
+  description = "Allow port 80"
 
   ingress {
     from_port = 80
